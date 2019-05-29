@@ -1,6 +1,6 @@
-import { Component } from "react";
+import React ,{Component} from 'react';
 
-class header extends Component{
+class Header extends Component{
     render(){
         return (
           <nav style={{ backgroundColor: "#CAA58B", height: "60px" }}>
@@ -19,4 +19,4 @@ class header extends Component{
     }
     
 }
-export default header;
+export default Header;
