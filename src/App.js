@@ -6,7 +6,7 @@ import searchMemory from './searchMemory';
 import registers from './registers';
 import login from './login';
 import profile from './profile';
-
+import lostMemory from './lostMemory';
 
 
 class App extends Component {
@@ -19,6 +19,7 @@ class App extends Component {
           <Route path="/registers" component={registers} />
           <Route path="/login" component={login} />
           <Route path="/profile" component={profile} />
+          <Route path="/lostMemory" component={lostMemory} />
         </BrowserRouter>
       </div>
     );

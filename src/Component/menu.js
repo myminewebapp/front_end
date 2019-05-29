@@ -25,7 +25,7 @@ class Menu extends Component {
             <a href="/searchMemory">กล่องความทรงจำ</a>
           </p>
           <p style={{ marginLeft: "10%" }}>
-            <a href="/searchMemory">ความทรงจำที่ถูกลบเลือน</a>
+            <a href="/lostMemory">ความทรงจำที่ถูกลบเลือน</a>
           </p>
           <hr />
           <p style={{ marginLeft: "10%" }}>
