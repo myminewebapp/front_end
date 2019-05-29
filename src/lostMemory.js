@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from './Component/header';
 import Menu from './Component/menu';
 import Memory from "./Component/memory";
+import Calendar from './Component/calendar';
 
 class lostMemory extends Component {
     render() {
@@ -47,6 +48,7 @@ class lostMemory extends Component {
                                 class="container"
                             >
                                 date
+                                <Calendar/>
             </div>
                         </div>
                     </div>

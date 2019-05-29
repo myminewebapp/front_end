@@ -15,6 +15,7 @@ class Header extends Component{
               }}
             >
               MyMine
+              <i class="material-icons">face</i>
             </p>
           </nav>
         );

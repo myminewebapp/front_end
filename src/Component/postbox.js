@@ -23,7 +23,9 @@ class Postbox extends Component {
         />
         <button style={{ backgroundColor: "#CAA58B", color: "white" }}>
           เพิ่มรูปภาพ/วิดีโอ
+          
         </button>
+        
         <button
           style={{
             backgroundColor: "#CAA58B",

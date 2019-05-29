@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar/dist/entry.nostyle';
 
-class MyApp extends Component {
+class myCalendar extends Component {
     state = {
         date: new Date(),
     }

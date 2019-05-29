@@ -26,7 +26,7 @@ class profile extends Component{
                         </div>
 
                         <div class="col-3">
-                            <div
+                            {/* <div
                                 style={{
                                     width: "100%",
                                     height: "300px",
@@ -38,8 +38,8 @@ class profile extends Component{
                                 }}
                                 class="container"
                             >
-                                date
-            </div>
+                                
+            </div> */}
                         </div>
                     </div>
                 </div>
