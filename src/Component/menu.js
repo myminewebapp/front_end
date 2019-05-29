@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-
-import red from '@material-ui/core/colors/red';
-import blue from '@material-ui/core/colors/blue';
-
+import { NavLink, Link } from 'react-router-dom';
 
 class Menu extends Component {
-  
+
   render() {
     return (
       <div class="col-3">
@@ -21,35 +18,29 @@ class Menu extends Component {
           }}
         >
           <br />
-          <p style={{ marginLeft: "10%" }}>
-            <i class="material-icons CAA58B">
-              home
-            </i>
-            <a href="/"> หน้าแรก</a>
-          </p>
-          <p style={{ marginLeft: "10%" }}>
-            <i class="material-icons CAA58B">
-              inbox
-            </i>
-            <a href="/searchMemory"> กล่องความทรงจำ</a>
-          </p>
-          <p style={{ marginLeft: "10%" }}>
-            <i class="material-icons CAA58B"> 
-              insert_drive_file
-            </i>
-            <a href="/lostMemory"> ความทรงจำที่ถูกลบเลือน</a>
-          </p>
+          <LinkMenu url="/" linkName="หน้าแรก" />
+          <LinkMenu url="/searchMemory" linkName="กล่องความทรงจำ" />
+          <LinkMenu url="/lostMemory" linkName="ความทรงจำที่ถูกลบเลือน" />
           <hr />
-          <p style={{ marginLeft: "10%" }}>
-            <i class="material-icons CAA58B">
-              person
-            </i>
-            <a href="/profile"> บัญชีผู้ใช้</a>
-          </p>
-          <p style={{ marginLeft: "10%" }}> ตั้งค่า</p>
+          <LinkMenu url="/profile" linkName="บัญชีผู้ใช้" />
+          <LinkMenu url="#" linkName="ตั้งค่า" />
         </div>
       </div>
     );
   }
 }
+
 export default Menu;
+
+class LinkMenu extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <p style={{ marginLeft: "10%" }}>
+        <NavLink exact to={this.props.url} activeStyle={{ color: '#be9273', fontWeight: 'bold' }}>{this.props.linkName}</NavLink>
+      </p>
+    );
+  }
+}

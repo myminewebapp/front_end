@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Header extends Component{
     render(){
         return (
-          <nav style={{ 
+          <nav class="myHeader" style={{ 
             backgroundColor: "#CAA58B", 
             height: "60px" }}>
             <p
