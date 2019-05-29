@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import {NavLink ,Link } from 'react-router-dom';
 
 class Menu extends Component {
   
@@ -18,23 +18,30 @@ class Menu extends Component {
           }}
         >
           <br />
-          <p style={{ marginLeft: "10%" }}>
-            <a href="/">หน้าแรก</a>
-          </p>
-          <p style={{ marginLeft: "10%" }}>
-            <a href="/searchMemory">กล่องความทรงจำ</a>
-          </p>
-          <p style={{ marginLeft: "10%" }}>
-            <a href="/lostMemory">ความทรงจำที่ถูกลบเลือน</a>
-          </p>
+            <LinkMenu url="/" linkName="หน้าแรก"/>
+            <LinkMenu url="/searchMemory" linkName="กล่องความทรงจำ"/>
+            <LinkMenu url="/lostMemory" linkName="ความทรงจำที่ถูกลบเลือน"/>
           <hr />
-          <p style={{ marginLeft: "10%" }}>
-            <a href="/profile">บัญชีผู้ใช้</a>
-          </p>
-          <p style={{ marginLeft: "10%" }}>ตั้งค่า</p>
-        </div>
+            <LinkMenu url="/profile" linkName="บัญชีผู้ใช้"/>
+            <LinkMenu url="#" linkName="ตั้งค่า"/> 
+        </div> 
       </div>
     );
   }
 }
+
 export default Menu;
+
+class LinkMenu extends Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return ( 
+      <p style={{ marginLeft: "10%" }}>
+        <NavLink exact to={this.props.url} activeStyle={{ color: '#be9273', fontWeight: 'bold'}}>{this.props.linkName}</NavLink>
+      </p>
+    );
+  }
+}
+
