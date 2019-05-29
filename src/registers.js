@@ -1,10 +1,29 @@
-import { Component } from "react";
-import React from 'react';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Header from "./Component/header";
 
 class Register extends Component {
     render() {
+        var myst = {
+            width: 150,
+            fontFamily: 'prompt',
+            fontSize: 18,
+            backgroundColor: '#CAA58B',
+            color: 'white',
+            borderRadius: 40,
+            border: 2,
+            padding: 7,
+            margin: 5,
+            marginBottom: 5
+        }
+
         return (
             <div>
+                <Header/>
+                <h1 style={{ margin: "20" }}><Route>
+                    <Link to="/login" style={myst}
+                    >ย้อนกลับ</Link>
+                </Route></h1>
 
                 <div style={{ marginTop: "2%", marginBottom: "2%", textAlign: "center" }}>
                     <p style={{ fontSize: "200%", fontFamily: "prompt", color: "#CAA58B" }}>
@@ -68,33 +87,11 @@ class Register extends Component {
                 </div>
 
                 <div style={{ textAlign: "center", marginBottom: "1.5%" }}>
-                    <button
-                        style={{
-                            width: "120px",
-                            fontFamily: "prompt",
-                            fontSize: "100%",
-                            backgroundColor: "#CAA58B",
-                            color: "white",
-                            borderRadius: "20px"
-                        }}
-                        type="submit"
-                    >
-                        สมัครสมาชิก
-              </button>
-                    <a
-                        style={{
-                            width: "150px",
-                            fontFamily: "prompt",
-                            fontSize: "100%",
-                            backgroundColor: "#CAA58B",
-                            color: "white",
-                            borderRadius: "20px"
-                        }}
-                        type="submit"
-                        href="login.html"
-                    >
-                        ย้อนกลับ
-              </a>
+                    <Route>
+                        <Link to="/" style={myst}
+                        >สมัครสมาชิก</Link>
+                    </Route>
+
                 </div>
             </div>
         );
