@@ -4,6 +4,7 @@ import Header from "./Component/header";
 import Menu from './Component/menu';
 import Postbox from './Component/postbox';
 import Memory from './Component/memory';
+import Calendar from 'react-calendar';
 
 
 class main extends Component{
@@ -41,7 +42,8 @@ class main extends Component{
                                 }}
                                 class="container"
                             >
-                                date
+                                
+                                <Calendar/>
                             </div>
                         </div>
                     </div>
