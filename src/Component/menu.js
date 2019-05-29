@@ -19,17 +19,17 @@ class Menu extends Component {
         >
           <br />
           <p style={{ marginLeft: "10%" }}>
-            <a >หน้าแรก</a>
+            <a href="/">หน้าแรก</a>
           </p>
           <p style={{ marginLeft: "10%" }}>
-            <a href="searchMemory.html">กล่องความทรงจำ</a>
+            <a href="/searchMemory">กล่องความทรงจำ</a>
           </p>
           <p style={{ marginLeft: "10%" }}>
-            <a href="searchMemory.html">ความทรงจำที่ถูกลบเลือน</a>
+            <a href="/searchMemory">ความทรงจำที่ถูกลบเลือน</a>
           </p>
           <hr />
           <p style={{ marginLeft: "10%" }}>
-            <a href="profile.html">บัญชีผู้ใช้</a>
+            <a href="/profile">บัญชีผู้ใช้</a>
           </p>
           <p style={{ marginLeft: "10%" }}>ตั้งค่า</p>
         </div>

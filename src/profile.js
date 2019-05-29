@@ -21,7 +21,7 @@ class profile extends Component{
 
 
                             <div style={{ height: "50%" }}>
-                                
+                                eieiei
                             </div>
                         </div>
 
