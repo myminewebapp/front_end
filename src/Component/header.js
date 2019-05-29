@@ -1,9 +1,11 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
-class header extends Component{
+class Header extends Component{
     render(){
         return (
-          <nav style={{ backgroundColor: "#CAA58B", height: "60px" }}>
+          <nav style={{ 
+            backgroundColor: "#CAA58B", 
+            height: "60px" }}>
             <p
               style={{
                 textAlign: "center",
@@ -17,6 +19,5 @@ class header extends Component{
           </nav>
         );
     }
-    
 }
-export default header;
+export default Header;
