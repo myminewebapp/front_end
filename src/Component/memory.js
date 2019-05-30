@@ -17,11 +17,9 @@ class Memory extends Component{
             }}
             className="container"
           >
-            ดกดกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกหหหหหหหหห
-            กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก
-            กกกกกกกกกกกกกกกกกกกกกก
+            {this.props.msg}
             <br />
-            ส. 01/12/2559
+            {this.props.date}
             <a href="/" style={{ marginLeft: "70%" }}>
               <i className="fas fa-trash-alt" />
             </a>

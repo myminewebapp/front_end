@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 class Header extends Component{
     render(){
-        let user;
-        if(this.props.account !== null){
-          let account = this.props.account;
-          // console.log(account);
-          user = account.firstName + ' ' + account.lastName;
-        }else{
-          user = "please login!!"
-        }
+        // let user;
+        // if(this.props.account !== null){
+        //   let account = this.props.account;
+        //   // console.log(account);
+        //   user = account.firstName + ' ' + account.lastName;
+        // }else{
+        //   user = "please login!!"
+        // }
         return (
           <nav className="myHeader" style={{ 
             backgroundColor: "#CAA58B", 
@@ -22,7 +22,8 @@ class Header extends Component{
                 fontFamily: "prompt"
               }}
             >
-              MyMine Welcome {user}
+              MyMine 
+              {/* Welcome {user} */}
             </p>
           </nav>
         );

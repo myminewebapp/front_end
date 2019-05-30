@@ -3,8 +3,15 @@ import { NavLink } from 'react-router-dom';
 
 
 class Menu extends Component {
-
   render() {
+    let user;
+    if(this.props.account !== null){
+      let account = this.props.account;
+      // console.log(account);
+      user = account.firstName + ' ' + account.lastName;
+    }else{
+      user = "please login!!"
+    }
     return (
       <div className="col-3">
         <div
@@ -25,8 +32,12 @@ class Menu extends Component {
           <LinkMenu url="/searchMemory" linkName="กล่องความทรงจำ" />
           <LinkMenu url="/lostMemory" linkName="ความทรงจำที่ถูกลบเลือน" />
           <hr />
+          <p style={{ marginLeft: "10%", fontWeight: 'bold'}}>
+            {user}
+          </p>
           <LinkMenu url="/profile" linkName="บัญชีผู้ใช้" />
           <LinkMenu url="#" linkName="ตั้งค่า" />
+          <LinkMenu url="/logout" linkName="ออกจากระบบ" />
         </div>
       </div>
       

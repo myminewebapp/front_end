@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 
-class profile extends Component{
+class Profile extends Component{
     render(){
+        let user;
+        if(this.props.account !== null){
+            let account = this.props.account;
+            user = account;
+        }else{
+            user = "please login!!"
+        }
         return(
-            <div style={{ height: "50%" }}>
-                eieiei
+            <div className="text-justify" style={{ height: "50%", wordWrap: 'break-word'}}>
+                {JSON.stringify(user)}
             </div>
         );
     }
 }
-export default profile;
+export default Profile;

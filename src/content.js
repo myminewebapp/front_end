@@ -1,41 +1,26 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import main from './main';
-import searchMemory from './searchMemory';
-import profile from './profile';
-import lostMemory from './lostMemory';
+import Main from './main';
+import SearchMemory from './searchMemory';
+import Profile from './profile';
+import LostMemory from './lostMemory';
 import Menu from './Component/menu';
 import Calendar from "react-calendar";
 
 class Content extends Component {
   render(){
-    let timeline = [];
-    let account = this.props.account;
-    if(account !== null){
-      fetch('mymine/api/timeline/'+account._id)
-      .then(res => {
-        if (res.status === 200) {
-          res.json().then(result => {
-            console.log(result);
-          });
-        } else {
-          const error = new Error(res.error);
-          throw error;
-        }
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    let account = null;
+    if(this.props.account !== null){
+      account = this.props.account;
     }
     return (
       <BrowserRouter>
-        {/* {this.props.account.firstName} */}
-        <Menu />
+        <Menu account={account}/>
         <div className="col-6">
-          <Route exact path="/" component={main} />
-          <Route path="/searchMemory" component={searchMemory} />
-          <Route path="/profile" component={profile} />
-          <Route path="/lostMemory" component={lostMemory} />                      
+          <Route exact path="/" component={() => <Main account={account} />} />
+          <Route path="/searchMemory" component={() => <SearchMemory account={account} />} />
+          <Route path="/profile" component={() => <Profile account={account} />} />
+          <Route path="/lostMemory" component={() => <LostMemory account={account} />} />                      
         </div>
         <div className="col-3">
           <div style={{
