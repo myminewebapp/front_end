@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
-import DeleteIcon from '@material-ui/icons/Delete';
-import NavigationIcon from '@material-ui/icons/Navigation';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Fab from '@material-ui/core/Fab';
+// import AddIcon from '@material-ui/icons/Add';
+// import Icon from '@material-ui/core/Icon';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import NavigationIcon from '@material-ui/icons/Navigation';
 
 
 class Postbox extends Component {
@@ -22,17 +22,17 @@ class Postbox extends Component {
           borderRadius : "15px",
           marginBottom: "3%"
         }}
-        class="container"
+        className="container"
       >
         <br />
         <textarea
           style={{ marginBottom: "2%" }}
-          class="form-control"
+          className="form-control"
           rows="3"
         />
         
 
-        <button style={{ backgroundColor: "#CAA58B", color: "white" }} type="button" class="btn btn-secondary">
+        <button style={{ backgroundColor: "#CAA58B", color: "white" }} type="button" className="btn btn-secondary">
           เพิ่มรูปภาพ/วิดีโอ</button>
 
         {/* <button style={{ backgroundColor: "#CAA58B", color: "white" }}>
@@ -43,7 +43,7 @@ class Postbox extends Component {
             backgroundColor: "#CAA58B",
             color: "white",
             marginLeft: "59%"
-          }} type="button" class="btn btn-secondary">บันทึก</button>
+          }} type="button" className="btn btn-secondary">บันทึก</button>
 
         
         {/* <button style={{ backgroundColor: "#CAA58B",color: "white",marginLeft: "63%"}}>

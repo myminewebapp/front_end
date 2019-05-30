@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 class Menu extends Component {
 
   render() {
     return (
-      <div class="col-3">
+      <div className="col-3">
         <div
           style={{
             width: "100%",
@@ -37,9 +37,6 @@ class Menu extends Component {
 export default Menu;
 
 class LinkMenu extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <p style={{ marginLeft: "10%" }}>
