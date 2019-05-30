@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from './Component/header';
 import Menu from './Component/menu';
 import Memory from "./Component/memory";
-
+import Searchbox from "./Component/searchbox";
 class searchMemory extends Component {
   render() {
     return (
@@ -17,7 +17,7 @@ class searchMemory extends Component {
 
             <div class="col-6">
               
-
+<Searchbox/>
               <div style={{ overflow: "scroll", height: "50%" }}>
                 <Memory />
                 <Memory />

@@ -4,7 +4,7 @@ import Header from "./Component/header";
 import Menu from './Component/menu';
 import Postbox from './Component/postbox';
 import Memory from './Component/memory';
-
+import popup from './popup';
 
 class main extends Component{
     render(){
@@ -41,7 +41,7 @@ class main extends Component{
                                 }}
                                 class="container"
                             >
-                                date
+                                
                             </div>
                         </div>
                     </div>

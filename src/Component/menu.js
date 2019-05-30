@@ -5,27 +5,27 @@ class Menu extends Component {
   
   render() {
     return (
-      <div class="col-3">
-        <div
+      
+      
+      <div class="card" style={{width: "18rem"}}>
+        
+    
+  <ul class="list-group list-group-flush"           
           style={{
-            width: "100%",
-            height: "540px",
-            borderStyle: "solid",
-            borderWidth: "1px",
-            borderColor: "#707070",
             fontFamily: "prompt",
             fontSize: "90%"
-          }}
-        >
-          <br />
-            <LinkMenu url="/" linkName="หน้าแรก"/>
-            <LinkMenu url="/searchMemory" linkName="กล่องความทรงจำ"/>
-            <LinkMenu url="/lostMemory" linkName="ความทรงจำที่ถูกลบเลือน"/>
-          <hr />
-            <LinkMenu url="/profile" linkName="บัญชีผู้ใช้"/>
-            <LinkMenu url="#" linkName="ตั้งค่า"/> 
-        </div> 
+          }}>
+    <li class="list-group-item"><LinkMenu url="/" linkName="หน้าแรก"/></li>
+    <li class="list-group-item"><LinkMenu url="/searchMemory" linkName="กล่องความทรงจำ"/></li>
+    <li class="list-group-item"><LinkMenu url="/lostMemory" linkName="ความทรงจำที่ถูกลบเลือน"/></li>
+    <li class="list-group-item"><LinkMenu url="/profile" linkName="บัญชีผู้ใช้"/></li>
+    <li class="list-group-item"><LinkMenu url="#" linkName="ตั้งค่า"/> </li>
+  </ul>
+  
       </div>
+
+
+      
     );
   }
 }

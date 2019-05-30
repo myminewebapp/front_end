@@ -8,7 +8,6 @@ import login from './login';
 import profile from './profile';
 import lostMemory from './lostMemory';
 
-
 class App extends Component {
   render(){
     return (
