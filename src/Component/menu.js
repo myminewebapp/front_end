@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, Link } from 'react-router-dom';
 
+
 class Menu extends Component {
 
   render() {
@@ -10,11 +11,13 @@ class Menu extends Component {
           style={{
             width: "100%",
             height: "540px",
-            borderStyle: "solid",
-            borderWidth: "1px",
-            borderColor: "#707070",
+            // borderStyle: "solid",
+            // borderWidth: "1px",
+            // borderColor: "#707070",
+            backgroundColor: 'white',
             fontFamily: "prompt",
-            fontSize: "90%"
+            fontSize: "90%",
+            borderRadius : "15px"
           }}
         >
           <br />
@@ -26,6 +29,7 @@ class Menu extends Component {
           <LinkMenu url="#" linkName="ตั้งค่า" />
         </div>
       </div>
+      
     );
   }
 }

@@ -5,6 +5,7 @@ import Menu from './Component/menu';
 import Postbox from './Component/postbox';
 import Memory from './Component/memory';
 import Calendar from 'react-calendar';
+import { white } from 'ansi-colors';
 
 
 class main extends Component{
@@ -25,6 +26,7 @@ class main extends Component{
                             <div style={{ overflow: "scroll", height: "50%" }}>
                                 <Memory />
                                 <Memory />
+                                <Memory />
                                 
                             </div>
                         </div>
@@ -34,11 +36,13 @@ class main extends Component{
                                 style={{
                                     width: "100%",
                                     height: "300px",
-                                    borderStyle: "solid",
-                                    borderWidth: "1px",
-                                    borderColor: "#707070",
+                                    // borderStyle: "solid",
+                                    // borderWidth: "1px",
+                                    // borderColor: "#707070",
+                                    backgroundColor:white,
                                     fontFamily: "prompt",
-                                    fontSize: "90%"
+                                    fontSize: "90%",
+                                    borderRadius : "15px"
                                 }}
                                 class="container"
                             >
