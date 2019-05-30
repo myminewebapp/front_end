@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
-import main from './main';
-import searchMemory from './searchMemory';
-import registers from './registers';
-import login from './login';
-import profile from './profile';
-import lostMemory from './lostMemory';
-
+import Header from './Component/header';
+import Content from './content';
+import Login from './login';
+import Registers from './registers';
 
 class App extends Component {
   render(){
     return (
-      <div>
         <BrowserRouter>
-          <Route exact path="/" component={main} />
-          <Route path="/searchMemory" component={searchMemory} />
-          <Route path="/registers" component={registers} />
-          <Route path="/login" component={login} />
-          <Route path="/profile" component={profile} />
-          <Route path="/lostMemory" component={lostMemory} />
+          <Header />
+          <div style={{ marginTop: "2%", marginBottom: "2%", textAlign: "left" }}
+               class="container"
+          >
+            <div class="row">
+              <Route exact path="/" component={Content} />
+              <Route path="/login" component={Login} />
+              <Route path="/registers" component={Registers} />
+            </div>
+          </div>
         </BrowserRouter>
-      </div>
     );
   }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Header from "./Component/header";
+import { Route, Link } from "react-router-dom";
 
 class Register extends Component {
     render() {
@@ -18,8 +17,7 @@ class Register extends Component {
         }
 
         return (
-            <div>
-                <Header/>
+            <div style={{width: '100%'}}>
                 <h1 style={{ margin: "20" }}><Route>
                     <Link to="/login" style={myst}
                     >ย้อนกลับ</Link>
