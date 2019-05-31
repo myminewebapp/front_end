@@ -1,60 +1,47 @@
 import React, { Component } from "react";
-import Header from './Component/header';
-import Menu from './Component/menu';
 import Memory from "./Component/memory";
-import Calendar from './Component/calendar';
 
-class lostMemory extends Component {
+class LostMemory extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+          memoryArr: []
+        }
+    }
     render() {
+        let account = null;
+        if(this.props.account !== null){
+        account = this.props.account;
+        fetch('mymine/api/memory/delete/'+account._id)
+            .then(res => {
+            if (res.status === 200) {
+                res.json().then(result => {
+                // console.log(result);
+                let memories = [];
+                result.forEach(element => {
+                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue}/>);
+                });
+                this.setState({
+                    memoryArr: memories
+                });
+                });
+            } else {
+                const error = new Error(res.error);
+                throw error;
+            }
+            })
+            .catch(err => {
+            console.error(err);
+            });
+        }
         return (
             <div>
-                <Header />
-                <div
-                    style={{ marginTop: "2%", marginBottom: "2%", textAlign: "left" }}
-                    class="container"
-                >
-                    <div class="row">
-                        <Menu />
-
-                        <div class="col-6">
-                            <p>ลบไม่ได้นะจ๊ะ</p>
-
-                            <div style={{ overflow: "scroll", height: "50%" }}>
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                            </div>
-                        </div>
-
-                        <div class="col-3">
-                            <div
-                                style={{
-                                    width: "100%",
-                                    height: "300px",
-                                    borderStyle: "solid",
-                                    borderWidth: "1px",
-                                    borderColor: "#707070",
-                                    fontFamily: "prompt",
-                                    fontSize: "90%"
-                                }}
-                                class="container"
-                            >
-                                date
-                                <Calendar/>
-            </div>
-                        </div>
-                    </div>
+                <p>เมื่อหมดเวลาการใช้งานทุกอย่างจะเริ่มต้นใหม่</p>
+                <div style={{ overflow: "scroll", height: "50%" }}>
+                    {this.state.memoryArr}
                 </div>
             </div>
         );
     }
 }
-export default lostMemory;
+export default LostMemory;

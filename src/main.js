@@ -1,59 +1,49 @@
 import React from 'react';
 import { Component } from "react";
-import Header from "./Component/header";
-import Menu from './Component/menu';
 import Postbox from './Component/postbox';
 import Memory from './Component/memory';
-import Calendar from 'react-calendar';
-import { white } from 'ansi-colors';
 
-
-class main extends Component{
+class Main extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            timelineArr: []
+        }
+    }
     render(){
+        let account = null;
+        if(this.props.account !== null){
+            account = this.props.account;
+            fetch('mymine/api/timeline/'+account._id)
+            .then(res => {
+              if (res.status === 200) {
+                res.json().then(result => {
+                    // console.log(result);
+                    let timelines = [];
+                    result.forEach(element => {
+                        timelines.push(<Memory key={element._id} id={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue} />);
+                    });
+                    this.setState({
+                        timelineArr: timelines
+                    });
+                });
+              } else {
+                const error = new Error(res.error);
+                throw error;
+              }
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        }
         return(
             <div>
-                <Header />
-                <div
-                    style={{ marginTop: "2%", marginBottom: "2%", textAlign: "left" }}
-                    class="container"
-                >
-                    <div class="row">
-                        <Menu />
-
-                        <div class="col-6">
-                            <Postbox />
-
-                            <div style={{ overflow: "scroll", height: "50%" }}>
-                                <Memory />
-                                <Memory />
-                                <Memory />
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-3">
-                            <div
-                                style={{
-                                    width: "100%",
-                                    height: "300px",
-                                    // borderStyle: "solid",
-                                    // borderWidth: "1px",
-                                    // borderColor: "#707070",
-                                    backgroundColor:white,
-                                    fontFamily: "prompt",
-                                    fontSize: "90%",
-                                    borderRadius : "15px"
-                                }}
-                                class="container"
-                            >
-                                
-                                <Calendar/>
-                            </div>
-                        </div>
-                    </div>
+                <Postbox account={account} />
+                <div style={{ overflow: "scroll", height: "10%" }}>
+                    {this.state.timelineArr}
                 </div>
             </div>
         );
     }
 }
-export default main;
+export default Main;

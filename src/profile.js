@@ -1,50 +1,33 @@
 import React, { Component } from "react";
-import Header from './Component/header';
-import Menu from './Component/menu';
 
-
-
-class profile extends Component{
+class Profile extends Component{
     render(){
+        let user;
+        if(this.props.account !== null){
+            let account = this.props.account;
+            user = account;
+        }else{
+            user = "please login!!"
+        }
         return(
-            <div>
-
-                <Header />
-                <div
-                    style={{ marginTop: "2%", marginBottom: "2%", textAlign: "left" }}
-                    class="container"
-                >
-                    <div class="row">
-                        <Menu />
-
-                        <div class="col-6">
-
-
-                            <div style={{ height: "50%" }}>
-                                eieiei
-                            </div>
-                        </div>
-
-                        <div class="col-3">
-                            {/* <div
-                                style={{
-                                    width: "100%",
-                                    height: "300px",
-                                    borderStyle: "solid",
-                                    borderWidth: "1px",
-                                    borderColor: "#707070",
-                                    fontFamily: "prompt",
-                                    fontSize: "90%"
-                                }}
-                                class="container"
-                            >
-                                
-            </div> */}
-                        </div>
-                    </div>
-                </div>
+            <div className="text-justify" 
+            style={{ 
+                height: "50%",
+                wordWrap: 'break-word',
+                width: "100%",
+                backgroundColor: 'white',
+                fontFamily: "prompt",
+                fontSize: "90%",
+                borderRadius : "15px",
+                marginBottom: "3%"}}>
+                {/* {JSON.stringify(user)} */}
+                <div style={{margin:40,padding:15}}>Firstname  :  {user.firstName}</div>
+                <div style={{margin:40,padding:15}}>Lastname  :  {user.lastName}</div>
+                <div style={{margin:40,padding:15}}>Email  :  {user.email}</div>
+                
+                
             </div>
         );
     }
 }
-export default profile;
+export default Profile;

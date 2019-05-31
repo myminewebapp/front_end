@@ -1,12 +1,19 @@
 import React, { Component } from "react";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 class Menu extends Component {
-
   render() {
+    let user;
+    if(this.props.account !== null){
+      let account = this.props.account;
+      // console.log(account);
+      user = account.firstName + ' ' + account.lastName;
+    }else{
+      user = "please login!!"
+    }
     return (
-      <div class="col-3">
+      <div className="col-3">
         <div
           style={{
             width: "100%",
@@ -25,8 +32,12 @@ class Menu extends Component {
           <LinkMenu url="/searchMemory" linkName="กล่องความทรงจำ" />
           <LinkMenu url="/lostMemory" linkName="ความทรงจำที่ถูกลบเลือน" />
           <hr />
+          <p style={{ marginLeft: "10%", fontWeight: 'bold'}}>
+            {user}
+          </p>
           <LinkMenu url="/profile" linkName="บัญชีผู้ใช้" />
           <LinkMenu url="#" linkName="ตั้งค่า" />
+          <LinkMenu url="/logout" linkName="ออกจากระบบ" />
         </div>
       </div>
       
@@ -37,9 +48,6 @@ class Menu extends Component {
 export default Menu;
 
 class LinkMenu extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <p style={{ marginLeft: "10%" }}>
