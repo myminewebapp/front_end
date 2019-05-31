@@ -98,9 +98,10 @@ class Postbox extends Component {
               className="form-control"
               rows="3"
               name="message"
-              placeholder="พิมข้อความของคุณที่นี่"
+              placeholder="พิมพ์ข้อความของคุณที่นี่"
               value={this.state.message}
               onChange={this.handleInputChange}
+              required
             />
             <label>ความรู้สึก</label> 
             <i className={this.state.emojiClass} style={{marginLeft: "50%"}}/>
@@ -108,6 +109,7 @@ class Postbox extends Component {
               name="emojiValue"
               value={this.state.emojiValue}
               onChange={this.handleEmojiValueChange}
+              required
             />
             <button style={{ backgroundColor: "#CAA58B", color: "white" }} type="button" className="btn btn-secondary">
               เพิ่มรูปภาพ/วิดีโอ</button>    
