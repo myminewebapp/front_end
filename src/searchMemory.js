@@ -30,10 +30,10 @@ class SearchMemory extends Component {
               result.forEach(element => {
                   if(this.state.memorySearch !== ''){
                     if(element.message.includes(this.state.memorySearch)){
-                      memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete}/>);
+                      memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={3}/>);
                     }
                   }else{
-                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete}/>);
+                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue}/>);
                   }
               });
               this.setState({

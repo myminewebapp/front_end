@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 
 class Memory extends Component{
+    mapEmojiValueToClassName = (value) => {
+      const className = [
+        'far fa-sad-cry fa-2x',
+        'far fa-sad-tear fa-2x',
+        'far fa-surprise fa-2x',
+        'far fa-smile-beam fa-2x',
+        'far fa-kiss-beam fa-2x'
+      ];
+      return className[value-1]
+    }
+
     deleteBtn = () => {
       fetch('/mymine/api/memory/'+ this.props.id, {
         method: 'DELETE',
@@ -44,12 +55,13 @@ class Memory extends Component{
             }}
             className="container"
           >            
-            <div style={{paddingTop:20}} >{this.props.msg}</div>
+            <div style={{paddingTop:20}} >{this.props.msg} </div>
             <br />
+            <i className={this.mapEmojiValueToClassName(this.props.emojiValue)} style={{marginRight:'10px'}}/>
             {newDate}
             {!this.props.isDelete ? <button onClick={this.deleteBtn} className="btn btn-danger" style={{
               padding: 4,
-              marginLeft:"60%"
+              marginLeft:"50%"
             }}>
                 <i className="fas fa-trash-alt" /></button> : 'Deleted'}
             <br />

@@ -19,7 +19,7 @@ class LostMemory extends Component {
                 // console.log(result);
                 let memories = [];
                 result.forEach(element => {
-                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete}/>);
+                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue}/>);
                 });
                 this.setState({
                     memoryArr: memories
@@ -36,7 +36,7 @@ class LostMemory extends Component {
         }
         return (
             <div>
-                <p>ลบไม่ได้นะจ๊ะ</p>
+                <p>เมื่อหมดเวลาการใช้งานทุกอย่างจะเริ่มต้นใหม่</p>
                 <div style={{ overflow: "scroll", height: "50%" }}>
                     {this.state.memoryArr}
                 </div>

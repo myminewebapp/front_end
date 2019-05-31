@@ -12,13 +12,27 @@ class Postbox extends Component {
         super(props);
         this.state = {
             message: '',
+            emojiValue: 3,
+            emojiClass: 'far fa-surprise fa-2x'
         };
+    }
+
+    mapEmojiValueToClassName = (value) => {
+      const className = [
+        'far fa-sad-cry fa-2x',
+        'far fa-sad-tear fa-2x',
+        'far fa-surprise fa-2x',
+        'far fa-smile-beam fa-2x',
+        'far fa-kiss-beam fa-2x'
+      ];
+      return className[value-1]
     }
 
     handleInputChange = (event) => {
         const { value, name } = event.target;
         this.setState({
-          [name]: value
+          [name]: value,
+          'emojiClass': this.mapEmojiValueToClassName(value)
         });
     }
       
@@ -28,7 +42,8 @@ class Postbox extends Component {
           method: 'POST',
           body: JSON.stringify({
             message_data : this.state.message,
-            owner_account: this.props.account._id
+            owner_account: this.props.account._id,
+            emojiValue: this.state.emojiValue
           }),
           headers: {
             'Content-Type': 'application/json'
@@ -42,7 +57,9 @@ class Postbox extends Component {
               // window.location = '/';
               console.log(resMsg.res);
               this.setState({
-                message: ''
+                message: '',
+                emojiValue: 3,
+                emojiClass: 'far fa-surprise fa-2x'
               });
             });
           } else {
@@ -77,6 +94,13 @@ class Postbox extends Component {
               rows="3"
               name="message"
               value={this.state.message}
+              onChange={this.handleInputChange}
+            />
+            <label>ความรู้สึก</label> 
+            <i className={this.state.emojiClass} style={{marginLeft: "50%"}}/>
+            <input type="range" className="custom-range" min="1" max="5"
+              name="emojiValue"
+              value={this.state.emojiValue}
               onChange={this.handleInputChange}
             />
             <button style={{ backgroundColor: "#CAA58B", color: "white" }} type="button" className="btn btn-secondary">
