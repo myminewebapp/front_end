@@ -93,6 +93,7 @@ class Postbox extends Component {
               className="form-control"
               rows="3"
               name="message"
+              placeholder="พิมข้อความของคุณที่นี่"
               value={this.state.message}
               onChange={this.handleInputChange}
             />

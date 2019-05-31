@@ -18,7 +18,7 @@ class Header extends Component{
                 textAlign: "center",
                 fontSize: "200%",
                 color: "white",
-                fontFamily: "prompt"
+                fontFamily: 'Quicksand'
               }}
             >
               MyMine 
