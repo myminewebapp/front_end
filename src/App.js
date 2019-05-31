@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './Component/header';
 import Content from './content';
 import Login from './login';
@@ -39,14 +39,20 @@ class App extends Component {
                className="container"
           >
             <div className="row">
+            <Switch>
               <Route exact path="/" component={WithAuth(() => <Content account={this.state.account} />)} />
+              <Route exact path="/searchMemory" component={WithAuth(() => <Content account={this.state.account} />)} />
+              <Route exact path="/profile" component={WithAuth(() => <Content account={this.state.account} />)} />
+              <Route exact path="/lostMemory" component={WithAuth(() => <Content account={this.state.account} />)} />
+              <Route exact path="/logout" component={WithAuth(() => <Content account={this.state.account} />)} />
               <Route path="/login" component={Login} />
               <Route path="/registers" component={Registers} />
+              <Route component={() => '404 not found!!!'} />
+            </Switch>
             </div>
           </div>
         </BrowserRouter>
     );
   }
 }
-
 export default App;
