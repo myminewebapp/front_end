@@ -7,6 +7,7 @@ import LostMemory from './lostMemory';
 import Menu from './Component/menu';
 import Calendar from "react-calendar";
 import Logout from './logout';
+import './calendar.css';
 
 class Content extends Component {
   render(){
@@ -36,7 +37,7 @@ class Content extends Component {
               fontSize: "90%",
               borderRadius : "15px"
             }} className="container">       
-            <Calendar/>
+            <Calendar className="Calendar" value={new Date()}/>
           </div>
         </div>
       </BrowserRouter>

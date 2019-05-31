@@ -13,6 +13,7 @@ class Memory extends Component{
               // this.props.history.push('/');
               // window.location = "/";
               console.log(res);
+              alert('Delete Complete');
           } else {
               const error = new Error(res.error);
               throw error;

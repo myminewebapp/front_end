@@ -5,9 +5,18 @@ class SearchMemory extends Component {
   constructor(props){
     super(props);
     this.state = {
-      memoryArr: []
+      memoryArr: [],
+      memorySearch: ''
     }
   }
+
+  handleInputChange = (event) => {
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
     let account = null;
     if(this.props.account !== null){
@@ -19,7 +28,13 @@ class SearchMemory extends Component {
               // console.log(result);
               let memories = [];
               result.forEach(element => {
-                  memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete}/>);
+                  if(this.state.memorySearch !== ''){
+                    if(element.message.includes(this.state.memorySearch)){
+                      memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete}/>);
+                    }
+                  }else{
+                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete}/>);
+                  }
               });
               this.setState({
                 memoryArr: memories
@@ -35,9 +50,31 @@ class SearchMemory extends Component {
         });
     }
     return (
+      <div>
+        <input
+                style={{
+                  width: "100%",
+                  fontFamily:"prompt",
+                  fontSize: "100%"
+                }}
+                type= "text"
+                placeholder="ค้นหาความทรงจำ"
+                className="form-control"
+                value={this.state.email}
+                name="memorySearch"
+                onChange={this.handleInputChange}
+          />
       <div style={{ overflow: "scroll", height: "50%" }}>
-        {this.state.memoryArr}
-      </div>  
+        <div style={{
+          width: "100 %",
+          fontFamily: "prompt",
+          fontSize: "90%",
+          marginBottom: "3%"  
+        }}>
+          </div>
+          {this.state.memoryArr}
+        </div>  
+      </div>
     );
   }
 }
