@@ -21,7 +21,7 @@ class Main extends Component{
                     // console.log(result);
                     let timelines = [];
                     result.forEach(element => {
-                        timelines.push(<Memory key={element._id} msg={element.message} date={element.date} />);
+                        timelines.push(<Memory key={element._id} id={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} />);
                     });
                     this.setState({
                         timelineArr: timelines

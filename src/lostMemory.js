@@ -19,7 +19,7 @@ class LostMemory extends Component {
                 // console.log(result);
                 let memories = [];
                 result.forEach(element => {
-                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} />);
+                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete}/>);
                 });
                 this.setState({
                     memoryArr: memories

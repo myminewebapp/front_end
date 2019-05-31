@@ -6,6 +6,7 @@ import Profile from './profile';
 import LostMemory from './lostMemory';
 import Menu from './Component/menu';
 import Calendar from "react-calendar";
+import Logout from './logout';
 
 class Content extends Component {
   render(){
@@ -20,7 +21,8 @@ class Content extends Component {
           <Route exact path="/" component={() => <Main account={account} />} />
           <Route path="/searchMemory" component={() => <SearchMemory account={account} />} />
           <Route path="/profile" component={() => <Profile account={account} />} />
-          <Route path="/lostMemory" component={() => <LostMemory account={account} />} />                      
+          <Route path="/lostMemory" component={() => <LostMemory account={account} />} />     
+          <Route path="/logout" component={() => <Logout />} />                      
         </div>
         <div className="col-3">
           <div style={{
