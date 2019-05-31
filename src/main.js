@@ -7,21 +7,22 @@ class Main extends Component{
     constructor(props){
         super(props);
         this.state = {
+            account: null,
             timelineArr: []
         }
     }
-    render(){
-        let account = null;
+
+    getDate = () =>{
         if(this.props.account !== null){
-            account = this.props.account;
-            fetch('mymine/api/timeline/'+account._id)
+            this.setState({account : this.props.account});
+            fetch('mymine/api/timeline/'+ this.props.account._id)
             .then(res => {
               if (res.status === 200) {
                 res.json().then(result => {
                     // console.log(result);
                     let timelines = [];
                     result.forEach(element => {
-                        timelines.push(<Memory key={element._id} id={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue} />);
+                        timelines.push(<Memory key={element._id} id={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue} reloadFunc={this.getDate}/>);
                     });
                     this.setState({
                         timelineArr: timelines
@@ -36,9 +37,16 @@ class Main extends Component{
               console.error(err);
             });
         }
+    }
+
+    componentDidMount(){
+        this.getDate();
+    }
+
+    render(){
         return(
             <div>
-                <Postbox account={account} />
+                <Postbox account={this.state.account} reloadFunc={this.getDate} />
                 <div style={{ overflow: "scroll", height: "10%" }}>
                     {this.state.timelineArr}
                 </div>

@@ -21,9 +21,8 @@ class Memory extends Component{
       })
       .then(res => {
           if (res.status === 200) {
-              // this.props.history.push('/');
-              // window.location = "/";
               console.log(res);
+              this.props.reloadFunc();
               alert('Delete Complete');
           } else {
               const error = new Error(res.error);

@@ -32,9 +32,16 @@ class Postbox extends Component {
         const { value, name } = event.target;
         this.setState({
           [name]: value,
-          'emojiClass': this.mapEmojiValueToClassName(value)
         });
     }
+
+    handleEmojiValueChange = (event) => {
+      const { value, name } = event.target;
+      this.setState({
+        [name]: value,
+        'emojiClass': this.mapEmojiValueToClassName(value)
+      });
+  }
       
     onSubmit = (event) => {
         event.preventDefault();
@@ -51,16 +58,14 @@ class Postbox extends Component {
         })
         .then(res => {
           if (res.status === 200) {
-            // this.props.history.push('/');
-            res.json().then(resMsg => {
-              // alert(resMsg.res);
-              // window.location = '/';
+              res.json().then(resMsg => {
               console.log(resMsg.res);
               this.setState({
                 message: '',
                 emojiValue: 3,
                 emojiClass: 'far fa-surprise fa-2x'
               });
+              this.props.reloadFunc();
             });
           } else {
             const error = new Error(res.error);
@@ -102,7 +107,7 @@ class Postbox extends Component {
             <input type="range" className="custom-range" min="1" max="5"
               name="emojiValue"
               value={this.state.emojiValue}
-              onChange={this.handleInputChange}
+              onChange={this.handleEmojiValueChange}
             />
             <button style={{ backgroundColor: "#CAA58B", color: "white" }} type="button" className="btn btn-secondary">
               เพิ่มรูปภาพ/วิดีโอ</button>    

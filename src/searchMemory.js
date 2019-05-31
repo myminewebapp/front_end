@@ -5,39 +5,19 @@ class SearchMemory extends Component {
   constructor(props){
     super(props);
     this.state = {
-      memoryArr: [],
-      memorySearch: ''
+        memoryArr: [],
+        memorySearch: '',
     }
   }
-
-  handleInputChange = (event) => {
-    const { value, name } = event.target;
-    this.setState({
-      [name]: value
-    });
-  }
-
-  render() {
-    let account = null;
+  getDate = () =>{
     if(this.props.account !== null){
-      account = this.props.account;
-      fetch('mymine/api/memory/'+account._id)
+      fetch('mymine/api/memory/'+this.props.account._id)
         .then(res => {
           if (res.status === 200) {
             res.json().then(result => {
               // console.log(result);
-              let memories = [];
-              result.forEach(element => {
-                  if(this.state.memorySearch !== ''){
-                    if(element.message.includes(this.state.memorySearch)){
-                      memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={3}/>);
-                    }
-                  }else{
-                    memories.push(<Memory key={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue}/>);
-                  }
-              });
               this.setState({
-                memoryArr: memories
+                memoryArr: result
               });
             });
           } else {
@@ -49,6 +29,30 @@ class SearchMemory extends Component {
           console.error(err);
         });
     }
+  }
+
+  componentDidMount(){
+   this.getDate();
+  }
+
+  handleInputChange = (event) => {
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render() {
+    let memories = [];
+    this.state.memoryArr.forEach(element => {
+        if(this.state.memorySearch !== ''){
+             if(element.message.toLowerCase().includes(this.state.memorySearch.toLowerCase())){
+                memories.push(<Memory key={element._id} id={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue} reloadFunc={this.getDate} />);
+             }
+        }else{
+             memories.push(<Memory key={element._id} id={element._id} msg={element.message} date={element.date} isDelete={element.is_delete} emojiValue={element.emojiValue} reloadFunc={this.getDate} />);
+        }
+    });
     return (
       <div>
         <input
@@ -60,7 +64,7 @@ class SearchMemory extends Component {
                 type= "text"
                 placeholder="ค้นหาความทรงจำ"
                 className="form-control"
-                value={this.state.email}
+                value={this.state.memorySearch}
                 name="memorySearch"
                 onChange={this.handleInputChange}
           />
@@ -72,7 +76,7 @@ class SearchMemory extends Component {
           marginBottom: "3%"  
         }}>
           </div>
-          {this.state.memoryArr}
+          {memories}
         </div>  
       </div>
     );
